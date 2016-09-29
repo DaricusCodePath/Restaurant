@@ -47,9 +47,13 @@ class TableViewController2: UITableViewController {
             
             
             self.posts.insert(postStruct(Item: Item,DayOfWeek: DayOfWeek,DateOfInstance: DateOfInstance,TimeOfInstance: TimeOfInstance,ExpirationDate: ExpirationDate,Manager: Manager,Employee: Employee,DayOfExpiration: DayOfExpiration), atIndex: 0)
+            
+           // print(self.posts)
+            self.tableView.reloadData()
+
         })
         
-        print(posts.count)
+        //print(posts.count)
             
 
         // Uncomment the following line to preserve selection between presentations
@@ -58,8 +62,10 @@ class TableViewController2: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        tableView.reloadData()
+        //print(posts.count)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,32 +82,33 @@ class TableViewController2: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell2")
         
-        var Day = posts[indexPath.row].DayOfExpiration
-        print(posts.count)
+        //var Day = posts.count
+//        print(posts.count)
+//        
+//        print(Day)
+//        print(Day)
+//        print(Day)
+//        
+//        if(Day == "Wednesday"){
+//           let label1 = cell.viewWithTag(1) as! UILabel
+//            label1.text = posts[indexPath.row].Item
+//            print("Working")
+//        }
+//        else{
+//            print("No data was found")
+//        }
         
-        print(Day)
-        print(Day)
-        print(Day)
-        
-        if(Day == "Wednesday"){
-           let label1 = cell.viewWithTag(1) as! UILabel
-            label1.text = posts[indexPath.row].Item
-            print("Working")
-        }
-        else{
-            print("No data was found")
-        }
 
         // Configure the cell...
         
-        //let ItemLabel = cell.viewWithTag(1) as! UILabel
-        //ItemLabel.text = "Hello"
+        let ItemLabel = cell?.viewWithTag(1) as! UILabel
+        ItemLabel.text = posts[indexPath.row].Item
         
-        
+        //print(Day)
 
-        return cell
+        return cell!
     }
     
 
