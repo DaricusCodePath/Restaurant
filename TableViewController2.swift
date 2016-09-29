@@ -19,7 +19,7 @@ struct postStruct {
     let ExpirationDate : String!
     let Manager : String!
     let Employee : String!
-    var DayOfExpiration : String!
+    let DayOfExpiration : String!
 }
 
 class TableViewController2: UITableViewController {
@@ -48,6 +48,8 @@ class TableViewController2: UITableViewController {
             
             self.posts.insert(postStruct(Item: Item,DayOfWeek: DayOfWeek,DateOfInstance: DateOfInstance,TimeOfInstance: TimeOfInstance,ExpirationDate: ExpirationDate,Manager: Manager,Employee: Employee,DayOfExpiration: DayOfExpiration), atIndex: 0)
         })
+        
+        print(posts.count)
             
 
         // Uncomment the following line to preserve selection between presentations
@@ -69,16 +71,27 @@ class TableViewController2: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return posts.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath)
         
-        if (posts[indexPath.row].DayOfExpiration = "Wednesday") {
+        var Day = posts[indexPath.row].DayOfExpiration
+        print(posts.count)
         
-         
+        print(Day)
+        print(Day)
+        print(Day)
+        
+        if(Day == "Wednesday"){
+           let label1 = cell.viewWithTag(1) as! UILabel
+            label1.text = posts[indexPath.row].Item
+            print("Working")
+        }
+        else{
+            print("No data was found")
         }
 
         // Configure the cell...

@@ -107,7 +107,7 @@ class ViewController: UIViewController {
         let ExpirationDate = UseByLabel.text
         let Manager = MgrLabel.text
         let Employee = EmpLabel.text
-        let DayOfExpiration = ExpirationDate
+        let DayOfExpiration = ExpirationDay
         
         let post : [String : AnyObject] = ["Item" : Item!,
                                            "DayOfWeek" : DayOfWeek!,
