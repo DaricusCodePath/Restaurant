@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var EmpLabel: UITextField!
     
+    @IBOutlet weak var WTLabel: UITextField!
+    
+    @IBOutlet weak var VolLabel: UITextField!
     
     var ExpirationDay : String!
     
@@ -109,6 +112,9 @@ class ViewController: UIViewController {
         let Employee = EmpLabel.text
         let DayOfExpiration = ExpirationDay
         
+        let Weight = WTLabel.text
+        let Volume = VolLabel.text
+        
         let post : [String : AnyObject] = ["Item" : Item!,
                                            "DayOfWeek" : DayOfWeek!,
                                            "DateOfInstance" : DateOfInstance!,
@@ -116,7 +122,9 @@ class ViewController: UIViewController {
                                            "ExpirationDate" : ExpirationDate!,
                                            "Manager" : Manager!,
                                            "Employee" : Employee!,
-                                           "ExpirationDay" : DayOfExpiration!]
+                                           "ExpirationDay" : DayOfExpiration!,
+                                           "Weight" : (Weight)!             ,
+                                           "Volume" : (Volume)!          ]
         
         let databaseRef = FIRDatabase.database().reference()
         

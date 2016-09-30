@@ -20,6 +20,8 @@ struct postStruct {
     let Manager : String!
     let Employee : String!
     let DayOfExpiration : String!
+    let Volume : String!
+    let Weight : String!
 }
 
 class TableViewController2: UITableViewController {
@@ -43,10 +45,12 @@ class TableViewController2: UITableViewController {
             let Manager = snapshot.value!["Manager"] as! String
             let Employee = snapshot.value!["Employee"] as! String
             let DayOfExpiration = snapshot.value!["ExpirationDay"] as! String
+            let Weight = snapshot.value!["Weight"] as! String
+            let Volume = snapshot.value!["Volume"] as! String
             
             
             
-            self.posts.insert(postStruct(Item: Item,DayOfWeek: DayOfWeek,DateOfInstance: DateOfInstance,TimeOfInstance: TimeOfInstance,ExpirationDate: ExpirationDate,Manager: Manager,Employee: Employee,DayOfExpiration: DayOfExpiration), atIndex: 0)
+            self.posts.insert(postStruct(Item: Item,DayOfWeek: DayOfWeek,DateOfInstance: DateOfInstance,TimeOfInstance: TimeOfInstance,ExpirationDate: ExpirationDate,Manager: Manager,Employee: Employee,DayOfExpiration: DayOfExpiration,Volume: Volume,Weight: Weight), atIndex: 0)
             
            // print(self.posts)
             self.tableView.reloadData()
@@ -105,6 +109,31 @@ class TableViewController2: UITableViewController {
         
         let ItemLabel = cell?.viewWithTag(1) as! UILabel
         ItemLabel.text = posts[indexPath.row].Item
+        
+        let DateCreatedLabel = cell?.viewWithTag(2) as! UILabel
+        DateCreatedLabel.text = posts[indexPath.row].DateOfInstance
+        
+        let TimeLabel = cell?.viewWithTag(3) as! UILabel
+        TimeLabel.text = posts[indexPath.row].TimeOfInstance
+        
+        let TimeLabel2 = cell?.viewWithTag(10) as! UILabel
+        TimeLabel2.text = posts[indexPath.row].TimeOfInstance
+        
+        let ExpireDateLabel = cell?.viewWithTag(4) as! UILabel
+        ExpireDateLabel.text = posts[indexPath.row].ExpirationDate
+        
+        let ManagerLabel = cell?.viewWithTag(5) as! UILabel
+        ManagerLabel.text = posts[indexPath.row].Manager
+        
+        let EmployeeLabel = cell?.viewWithTag(6) as! UILabel
+        EmployeeLabel.text = posts[indexPath.row].Employee
+        
+        let WeightLabel = cell?.viewWithTag(7) as! UILabel
+        WeightLabel.text = posts[indexPath.row].Weight
+        
+        let VolumeLabel = cell?.viewWithTag(8) as! UILabel
+        VolumeLabel.text = posts[indexPath.row].Volume
+        
         
         //print(Day)
 
