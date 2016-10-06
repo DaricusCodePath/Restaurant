@@ -24,13 +24,18 @@ struct postStruct {
     let Weight : String!
 }
 
+
 class TableViewController2: UITableViewController {
     
     var posts = [postStruct]()
+    var storeDayValue: Int?
+    let DaysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let databaseRef = FIRDatabase.database().reference()
         
@@ -49,11 +54,16 @@ class TableViewController2: UITableViewController {
             let Volume = snapshot.value!["Volume"] as! String
             
             
+            if(self.DaysOfWeek[self.storeDayValue!] == DayOfExpiration)
+            {
+                
             
             self.posts.insert(postStruct(Item: Item,DayOfWeek: DayOfWeek,DateOfInstance: DateOfInstance,TimeOfInstance: TimeOfInstance,ExpirationDate: ExpirationDate,Manager: Manager,Employee: Employee,DayOfExpiration: DayOfExpiration,Volume: Volume,Weight: Weight), atIndex: 0)
             
            // print(self.posts)
-            self.tableView.reloadData()
+                self.tableView.reloadData()
+            
+            }
 
         })
         
@@ -65,7 +75,7 @@ class TableViewController2: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        print(storeDayValue)
         //print(posts.count)
     }
     
@@ -87,6 +97,7 @@ class TableViewController2: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell2")
+        //print(indexPath.row)
         
         //var Day = posts.count
 //        print(posts.count)
@@ -106,6 +117,7 @@ class TableViewController2: UITableViewController {
         
 
         // Configure the cell...
+        //print(storeDayValue)
         
         let ItemLabel = cell?.viewWithTag(1) as! UILabel
         ItemLabel.text = posts[indexPath.row].Item

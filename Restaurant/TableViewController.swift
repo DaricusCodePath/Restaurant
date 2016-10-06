@@ -12,6 +12,7 @@ class TableViewController: UITableViewController {
     
     
     let DaysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    var dayValue: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,9 @@ class TableViewController: UITableViewController {
         //cell.textLabel?.text = "Hello"
         
         cell.textLabel?.text = DaysOfWeek[indexPath.row]
+        dayValue = indexPath.row
+        print(dayValue)
+        print(DaysOfWeek[indexPath.row])
 
         // Configure the cell...
 
@@ -89,14 +93,21 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var secondTableView:TableViewController2 = segue.destinationViewController as! TableViewController2
+        
+        let selectedRow  = self.tableView.indexPathForSelectedRow!.row
+        secondTableView.storeDayValue = selectedRow
+        
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
