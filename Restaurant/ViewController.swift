@@ -10,6 +10,18 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+extension UIView {
+    func toImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
+        
+        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var DateLabel: UILabel!
@@ -31,6 +43,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var VolLabel: UITextField!
     
     var ExpirationDay : String!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,10 +146,26 @@ class ViewController: UIViewController {
         
         
     }
+    
     @IBAction func SaveButtonPress(sender: AnyObject) {
         LabelData()
     }
     
+    @IBAction func printButton(sender: AnyObject) {
+        let printInfo = UIPrintInfo(dictionary:nil)
+        printInfo.outputType = UIPrintInfoOutputType.General
+        printInfo.jobName = "My Print Job"
+        
+        // Set up print controller
+        let printController = UIPrintInteractionController.sharedPrintController()
+        printController.printInfo = printInfo
+        
+        // Assign a UIImage version of my UIView as a printing iten
+        printController.printingItem = self.view.toImage()
+        
+        // Do it
+        printController.presentFromRect(self.view.frame, inView: self.view, animated: true, completionHandler: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -20,6 +20,7 @@
 		4C6C873B1D9A1AB100B96315 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C6C87381D9A1AB100B96315 /* GoogleService-Info.plist */; };
 		4C6C873D1D9A2A3200B96315 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C873C1D9A2A3200B96315 /* TableViewController.swift */; };
 		4C6C873F1D9CBB5E00B96315 /* TableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C873E1D9CBB5E00B96315 /* TableViewController2.swift */; };
+		4C6C87411DA75C9D00B96315 /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C87401DA75C9D00B96315 /* VC2.swift */; };
 		980D6F48FFCEB7C3C32D589B /* libPods-Restaurant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8B8E213874DB6DE303DF9E /* libPods-Restaurant.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		4C6C87381D9A1AB100B96315 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C6C873C1D9A2A3200B96315 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		4C6C873E1D9CBB5E00B96315 /* TableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController2.swift; path = ../TableViewController2.swift; sourceTree = "<group>"; };
+		4C6C87401DA75C9D00B96315 /* VC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
 		A5F68E1765DC1C505B37069A /* Pods-Restaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restaurant/Pods-Restaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 				4C6C87071D9A199600B96315 /* AppDelegate.swift */,
 				4C6C87091D9A199600B96315 /* ViewController.swift */,
 				4C6C870B1D9A199600B96315 /* Main.storyboard */,
+				4C6C87401DA75C9D00B96315 /* VC2.swift */,
 				4C6C873C1D9A2A3200B96315 /* TableViewController.swift */,
 				4C6C87111D9A199600B96315 /* Assets.xcassets */,
 				4C6C87131D9A199600B96315 /* LaunchScreen.storyboard */,
@@ -351,6 +354,7 @@
 				4C6C873F1D9CBB5E00B96315 /* TableViewController2.swift in Sources */,
 				4C6C870A1D9A199600B96315 /* ViewController.swift in Sources */,
 				4C6C87081D9A199600B96315 /* AppDelegate.swift in Sources */,
+				4C6C87411DA75C9D00B96315 /* VC2.swift in Sources */,
 				4C6C87101D9A199600B96315 /* Restaurant.xcdatamodeld in Sources */,
 				4C6C873D1D9A2A3200B96315 /* TableViewController.swift in Sources */,
 			);

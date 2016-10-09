@@ -28,6 +28,21 @@ struct postStruct {
 class TableViewController2: UITableViewController {
     
     var posts = [postStruct]()
+    
+    var Item2pass : String!
+    var DayOfWeek2pass : String!
+    var DateOfInstance2pass : String!
+    var TimeOfInstance2pass : String!
+    var ExpirationDate2pass : String!
+    var Manager2pass : String!
+    var Employee2pass : String!
+    var DayOfExpiration2pass : String!
+    var Volume2pass : String!
+    var Weight2pass : String!
+    
+    
+    
+    
     var storeDayValue: Int?
     let DaysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
@@ -62,8 +77,11 @@ class TableViewController2: UITableViewController {
             
            // print(self.posts)
                 self.tableView.reloadData()
+                
             
             }
+            //print(self.posts)
+
 
         })
         
@@ -98,6 +116,8 @@ class TableViewController2: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell2")
         //print(indexPath.row)
+        var PrintData = (self.posts.description)
+        print(PrintData)
         
         //var Day = posts.count
 //        print(posts.count)
@@ -121,30 +141,38 @@ class TableViewController2: UITableViewController {
         
         let ItemLabel = cell?.viewWithTag(1) as! UILabel
         ItemLabel.text = posts[indexPath.row].Item
+        Item2pass = ItemLabel.text
         
         let DateCreatedLabel = cell?.viewWithTag(2) as! UILabel
         DateCreatedLabel.text = posts[indexPath.row].DateOfInstance
+        DateOfInstance2pass = DateCreatedLabel.text
         
         let TimeLabel = cell?.viewWithTag(3) as! UILabel
         TimeLabel.text = posts[indexPath.row].TimeOfInstance
+        TimeOfInstance2pass = TimeLabel.text
         
         let TimeLabel2 = cell?.viewWithTag(10) as! UILabel
         TimeLabel2.text = posts[indexPath.row].TimeOfInstance
         
         let ExpireDateLabel = cell?.viewWithTag(4) as! UILabel
         ExpireDateLabel.text = posts[indexPath.row].ExpirationDate
+        ExpirationDate2pass = ExpireDateLabel.text
         
         let ManagerLabel = cell?.viewWithTag(5) as! UILabel
         ManagerLabel.text = posts[indexPath.row].Manager
+        Manager2pass = ManagerLabel.text
         
         let EmployeeLabel = cell?.viewWithTag(6) as! UILabel
         EmployeeLabel.text = posts[indexPath.row].Employee
+        Employee2pass = EmployeeLabel.text
         
         let WeightLabel = cell?.viewWithTag(7) as! UILabel
         WeightLabel.text = posts[indexPath.row].Weight
+        Weight2pass = WeightLabel.text
         
         let VolumeLabel = cell?.viewWithTag(8) as! UILabel
         VolumeLabel.text = posts[indexPath.row].Volume
+        Volume2pass = VolumeLabel.text
         
         
         //print(Day)
@@ -188,14 +216,35 @@ class TableViewController2: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var secondView2:VC2 = segue.destinationViewController as! VC2
+        
+        print(Item2pass)
+        
+        secondView2.ItemVC2 = Item2pass
+        secondView2.DateOfInstanceVC2 = DateOfInstance2pass
+        secondView2.TimeOfInstanceVC2 = TimeOfInstance2pass
+        secondView2.ExpirationDateVC2 = ExpirationDate2pass
+        secondView2.ManagerVC2 = Manager2pass
+        secondView2.EmployeeVC2 = Employee2pass
+
+        /*
+        secondView2.DateLabel.text = DateOfInstance2pass
+        secondView2.ItemLabel.text = Item2pass
+        secondView2.TimeLabel.text = TimeOfInstance2pass
+        secondView2.UseByLabel.text = ExpirationDate2pass
+        secondView2.MgrLabel.text = Manager2pass
+        secondView2.EmpLabel.text = Employee2pass
+        */
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
